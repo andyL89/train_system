@@ -58,5 +58,16 @@ describe '#Train' do
     end
   end
 
+  describe('#delete') do
+    it('it deletes a train from the database') do
+      train1 = Train.new({:name => 'Chugga Chugga', :id => nil})
+      train1.save()
+      train2 = Train.new({:name => 'Choo Choo', :id => nil})
+      train2.save()
+      train1.delete()
+      expect(Train.all).to(eq([train2]))
+    end
+  end
+
 
 end
