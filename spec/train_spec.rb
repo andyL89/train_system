@@ -49,5 +49,14 @@ describe '#Train' do
     end
   end
 
+  describe('#update') do
+    it('updates an album by id') do
+      train = Train.new({:name => 'Chugga Chugga', :id => nil})
+      train.save()
+      train.update({:name => 'Thomas'})
+      expect(train.name).to(eq('Thomas'))
+    end
+  end
+
 
 end
