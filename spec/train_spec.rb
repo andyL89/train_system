@@ -28,5 +28,26 @@ describe '#Train' do
     end
   end
 
+  describe('.clear') do
+    it('clears all album') do
+      train1 = Train.new({:name => 'Chugga Chugga', :id => nil})
+      train1.save()
+      train2 = Train.new({:name => 'Choo Choo', :id => nil})
+      train2.save()
+      Train.clear()
+      expect(Train.all).to(eq([]))
+    end
+  end
+
+  describe('.find') do
+    it('finds a train by id') do
+      train1 = Train.new({:name => 'Chugga Chugga', :id => nil})
+      train1.save()
+      train2 = Train.new({:name => 'Choo Choo', :id => nil})
+      train2.save()
+      expect(Train.find(train1.id)).to(eq(train1))
+    end
+  end
+
 
 end
