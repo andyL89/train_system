@@ -1,0 +1,15 @@
+<h1>Noobie On Rails</h1>
+
+<h3>Train names:</h3>
+
+<% if @trains.any? %>
+  <ul>
+    <% @trains.each do |train| %>
+      <li><a href="/trains/<%= train.id %>"><%= train.name %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are currently no trains to display.</p>
+<% end %>
+
+<p><a href="/">Go back to cities</a></p>

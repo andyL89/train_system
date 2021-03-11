@@ -2,6 +2,7 @@ require('sinatra')
 require('sinatra/reloader')
 require('./lib/train')
 require('./lib/city')
+require('./lib/operator')
 require('pry')
 require('pg')
 also_reload('lib/**/*.rb')
@@ -16,6 +17,23 @@ end
 get('/cities') do
   @cities = City.all
   erb(:cities)
+end
+
+get('/cities/:id') do
+  @city = City.find(params[:id].to_i)
+  @trains = Train.find_by_city(params[:id].to_i)
+  erb(:city)
+end
+
+get('/trains') do
+  @trains = Train.all
+  erb(:trains)
+end
+
+get('/trains/:id') do
+  @train = Train.find(params[:id].to_i)
+  @cities = City.find_by_train(params[:id])
+  erb(:train)
 end
 
 get('/operator/:id') do
@@ -97,4 +115,15 @@ delete('/operator/:id/trains/:t_id') do
   @cities = City.all
   @trains = Train.all
   erb(:operator_trains)
+end
+
+get('/operator/:id/stops') do
+  @operator = Operator.find(params[:id].to_i)
+  erb(:stops)
+end
+
+post('/operator/:id/stops') do
+  @operator = Operator.find(params[:id].to_i)
+  Operator.stops(params[:train_name], params[:city_name], params[:time])
+  erb(:stops)
 end

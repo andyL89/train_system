@@ -1,0 +1,12 @@
+
+<form action="/operator/<%= @operator.id %>/stops" method="post">
+  <div class="form-group">
+    <label for="train_name">Train</label>
+    <input id="train_name" name="train_name" class="form-control" required type="text">
+    <label for="city_name">City</label>
+    <input id="city_name" name="city_name" class="form-control" required type="text">
+    <label for="time">Train</label>
+    <input id="time" name="time" class="form-control" required type="text">
+  </div>
+  <button type="submit" class="btn">Add Stop</button>
+</form>

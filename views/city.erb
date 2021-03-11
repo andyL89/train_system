@@ -1,0 +1,13 @@
+<h1><%= @city.name %></h1>
+
+<% if @trains.any? %>
+  <ul>
+    <% @trains.each do |train| %>
+      Arrival time:
+      <li><a href="/operator/<%= @operator.id %>/trains/<%= train.id %>"><%= train.name %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are currently no trains to display.</p>
+<% end %>
+<br>
