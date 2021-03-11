@@ -122,3 +122,4 @@ Licensed under [MIT license](https://mit-license.org/)
 
 ## Contact Information
 _Andy Lawson: [Email](alawson89@gmail.com)_
+_Geof Rosenmund: [Email](geof.rosenmunds.email@gmail.com)_

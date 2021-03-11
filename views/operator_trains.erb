@@ -1,0 +1,23 @@
+<h3> Available Trains:</h3>
+
+<% if @trains.any? %>
+  <ul>
+    <% @trains.each do |train| %>
+      <li><a href="/operator/<%= @operator.id %>/trains/<%= train.id %>"><%= train.name %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are currently no trains to display.</p>
+<% end %>
+<br>
+<h4>Add a train:</h4>
+<br>
+<form action="/operator/<%= @operator.id %>/trains" method="post">
+  <div class="form-group">
+    <label for="train_name">Train</label>
+    <input id="train_name" name="train_name" class="form-control" required type="text">
+  </div>
+  <button type="submit" class="btn">Add Train</button>
+</form>
+<br>
+<p><a href="/operator/<%= @operator.id %>">Return to operator page</a></p>

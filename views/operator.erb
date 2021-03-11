@@ -1,0 +1,30 @@
+<h1>Operator Page</h1>
+
+<h3>Station Locations:</h3>
+
+<% if @cities.any? %>
+  <ul>
+    <% @cities.each do |city| %>
+      <li><a href="/operator/<%= @operator.id %>/cities/<%= city.id %>"><%= city.name %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are currently no cities to display.</p>
+<% end %>
+
+<p><a href="/operator/<%= @operator.id %>/cities">Add a new city</a></p>
+
+
+<h3> Available Trains:</h3><br>
+
+<% if @trains.any? %>
+  <ul>
+    <% @trains.each do |train| %>
+      <li><a href="/operator/<%= @operator.id %>/trains/<%= train.id %>"><%= train.name %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are currently no trains to display.</p>
+<% end %><br>
+
+<p><a href= '/operator/<%= @operator.id %>/trains'>Add a new train</a></p>
