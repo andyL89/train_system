@@ -119,11 +119,13 @@ end
 
 get('/operator/:id/stops') do
   @operator = Operator.find(params[:id].to_i)
-  erb(:stops)
+  @stops = Operator.find_stops()
+  erb(:operator_stops)
 end
 
 post('/operator/:id/stops') do
   @operator = Operator.find(params[:id].to_i)
-  Operator.stops(params[:train_name], params[:city_name], params[:time])
-  erb(:stops)
+  Operator.stops(params[:city_name], params[:train_name], params[:time])
+  @stops = Operator.find_stops()
+  erb(:operator_stops)
 end

@@ -1,3 +1,17 @@
+<h3>Stops</h3>
+
+<% if @stops.any? %>
+  <ul>
+    <% @stops.each do |stop| %>
+      <li><%= stop[0] %>  <%= stop[1] %>  <%= stop[2] %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are currently no stops to display.</p>
+<% end %>
+
+<br>
+
 
 <form action="/operator/<%= @operator.id %>/stops" method="post">
   <div class="form-group">
@@ -5,8 +19,11 @@
     <input id="train_name" name="train_name" class="form-control" required type="text">
     <label for="city_name">City</label>
     <input id="city_name" name="city_name" class="form-control" required type="text">
-    <label for="time">Train</label>
+    <label for="time">Time</label>
     <input id="time" name="time" class="form-control" required type="text">
   </div>
   <button type="submit" class="btn">Add Stop</button>
 </form>
+<br>
+
+<p><a href="/operator/<%= @operator.id %>">Return to operator page</a></p>
